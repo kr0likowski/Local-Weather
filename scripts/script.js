@@ -1,19 +1,9 @@
 var lati;
 var long;
 var urly;
-var backgrounds = {
-    snow: "https://bit.ly/29bsQqH",
-    hail: "https://bit.ly/29gktuZ",
-    clear: "https://bit.ly/29m1Toy",
-    cloudy: "https://bit.ly/29nzWgI",
-    thunderstorm: "https://bit.ly/29DoQjR",
-    rain: "https://bit.ly/29fBHcu",
-    fog: "https://bit.ly/29b6Wrp",
-    dust: "https://bit.ly/29lNRCb",
-}
 $(document).ready(function(){
 
-        getCoords();
+    getCoords();
 
 });
 function getCoords(){
@@ -35,8 +25,34 @@ function getWeather(lati, long) {
             $("#x").text(currentTempInCelsius + " " + String.fromCharCode(176));
             $("#y").text(result.name);
             $("#z").text(result.weather[0].main);
-            $("body").css({"background":"url("+backgrounds.clear+") no-repeat center fixed","background-size": "cover"});
+            $("body").css({"background":"url("+getWeather(result.weather[0].main.toLowerCase())+") no-repeat center fixed","background-size": "cover"});
         }
     });
+    function getWeather(weather){
+        switch(weather){
+            case 'snow':     return "https://bit.ly/29bsQqH";
+                break;
+            case 'hail':
+                return "https://bit.ly/29gktuZ";
+                break;
+            case 'clear':
+                return "https://bit.ly/29m1Toy";
+                break;
+            case 'cloudy':
+                return "https://bit.ly/29nzWgI";
+                break;
+            case 'thunderstorm': return "https://bit.ly/29DoQjR";
+                break;
+            case 'rain':
+                return "https://bit.ly/29fBHcu";
+                break;
+            case 'fog': return "https://bit.ly/29b6Wrp";
+                break;
+            case 'dust':
+                return "https://bit.ly/29lNRCb";
+                break;
+        }
+    }
 }
+
 
