@@ -12,9 +12,8 @@ var backgrounds = {
     dust: "https://bit.ly/29lNRCb",
 }
 $(document).ready(function(){
-    $('.butt').click(function(){
+
         getCoords();
-    });
 
 });
 function getCoords(){
